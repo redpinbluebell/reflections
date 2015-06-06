@@ -12,8 +12,12 @@ comman scp can be used to make a secure copy from one computer to another one
 ls -a (ls Dash a) can give you list of files in a directory including the hidden ones. NOTE: ls -a runs without git prefix
 If you reach a directory location in git bash and then use 'git init', git will initialize to configuration control that directory. It can be checked using 'ls -a' command in git because now this directory will show one more file in there with the name '.git' that stores metadata (history) etc. to manage configuration
 NOTE: With 'git init' command, git automatically doesn't create a first commit for new directory under git config control, you have to explicitly create first commit or for that matter any commit.
-For such no commit cases, git log will throw error message but 'git status' command is better because it will tell you beyond what is normally committed also what is not committed hence untracked by git
+For such no commit cases, git log will throw error message but 'git status' command is better because it will tell you what is not committed hence untracked by git
 'git add' can be used to put files into staging area.
 If you accidentally add a file to the staging area, you can remove it using 'git reset'. 
 or example, if you accidentally add lesson_2_reflections.txt, but don’t want it to be committed yet, run git reset lesson_2_reflections.txt and the file will be removed from the staging area, but it will still be in your working directory
-Any repository that you initialize git for becomes a working directory. Once you use 'git add', the files from working directory go to staging area. Once you commit using 'git commit' command, these files from staging area then only go to config. controlled repository. If you use 'git reset' then those in staging area will come back to working repository.
+Any folder that you initialize git for becomes a working directory. Once you use 'git add', the files from working directory go to staging area. Once you commit using 'git commit' command, these files from staging area then only go to config. controlled repository. If you use 'git reset' then those in staging area will come back to working repository.
+git diff oldID newID - compares changes between two committed versions in repository
+git diff --staged (without any argument) compares staging area with committed repository and tells the diff
+git diff (no modifier, no arguments) tells diff between working directory and staging area
+git reset --hard |This is a tricky command and irreversible, when you do this, it means, drop all the non-committed changes either in staging area or in working directory and set everything to the state of latest commit. USE WITH CAUTION
