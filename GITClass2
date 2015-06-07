@@ -21,4 +21,6 @@ git diff oldID newID - compares changes between two committed versions in reposi
 git diff --staged (without any argument) compares staging area with committed repository and tells the diff
 git diff (no modifier, no arguments) tells diff between working directory and staging area
 git reset --hard |This is a tricky command and irreversible, when you do this, it means, drop all the non-committed changes either in staging area or in working directory and set everything to the state of latest commit. USE WITH CAUTION
-.
+git branch (without argument) gives how many branches are in directory
+git banch name (name argument) creates a branch in repository from latest commit by the name that you give in argument
+This newly created branch is not checked out, 'master' branch by default is checked out so use 'git checkout branchname' to checkout and make changes to newly created branch.
