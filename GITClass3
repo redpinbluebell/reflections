@@ -1,0 +1,39 @@
+CD is to reach a file in cmd prompt - it means change directory
+FC means file compare
+Commit should be made as soon as a logical point is reached
+Two distinct bugs, two distinct commit
+git clone is used to copy whole directory as it is from somewhere else to git base directory. it takes url as argument to know where files are from where it will clone.
+git log gives history of commits and git diff gives difference between two IDs. git diff OldID NewID is format
+git checkout ID makes that commit as current and available to check in folder
+CD ~ is used to get to base git directory or home
+mv is move command to move file and mv with path where a file is currently present moves the file to home directory
+while writing file path in unix environment, use forward slash while in windows, it is back slash. if path name is two lettered and has a space in between, use back slash between two letters to show space in this environment.
+comman scp can be used to make a secure copy from one computer to another one
+ls -a (ls Dash a) can give you list of files in a directory including the hidden ones. NOTE: ls -a runs without git prefix
+If you reach a directory location in git bash and then use 'git init', git will initialize to configuration control that directory. It can be checked using 'ls -a' command in git because now this directory will show one more file in there with the name '.git' that stores metadata (history) etc. to manage configuration
+NOTE: With 'git init' command, git automatically doesn't create a first commit for new directory under git config control, you have to explicitly create first commit or for that matter any commit.
+For such no commit cases, git log will throw error message but 'git status' command is better because it will tell you what is not committed hence untracked by git
+'git add' can be used to put files into staging area.
+If you accidentally add a file to the staging area, you can remove it using 'git reset'. 
+or example, if you accidentally add lesson_2_reflections.txt, but don’t want it to be committed yet, run git reset lesson_2_reflections.txt and the file will be removed from the staging area, but it will still be in your working directory
+Any folder that you initialize git for becomes a working directory. Once you use 'git add', the files from working directory go to staging area. Once you commit using 'git commit' command, these files from staging area then only go to config. controlled repository. If you use 'git reset' then those in staging area will come back to working repository.
+git diff oldID newID - compares changes between two committed versions in repository
+git diff --staged (without any argument) compares staging area with committed repository and tells the diff
+git diff (no modifier, no arguments) tells diff between working directory and staging area
+git reset --hard |This is a tricky command and irreversible, when you do this, it means, drop all the non-committed changes either in staging area or in working directory and set everything to the state of latest commit. USE WITH CAUTION
+git branch (without argument) gives how many branches are in directory
+git banch name (name argument) creates a branch in repository from latest commit by the name that you give in argument
+This newly created branch is not checked out, 'master' branch by default is checked out so use 'git checkout branchname' to checkout and make changes to newly created branch.
+Git branch structure can be tracked using command 'git log --graph --oneline banch1name branch2name', here suffix git log of double dash graph converts simple log into graphical tree structure, adding double dash oneline makes it simpler representation.
+'git branch branchname' followed by 'git checkout branchname' will create a banch and then out that to make available for work. these two commands can be done using one shortcut command called 'git checkout -b branchname'. Here -b suffix means create branch and then checkout.
+'git merge branchname1 branchname2' merge branchname1 and branchname2 together. Order doesn't matter because merge is true.
+'git show commitId' is a command that automatically shows diff between parent of this commitId with this commitID so you don't need to know or write parent commitId like you do in 'git diff' command. 
+Benefit of 'git show': because once you merge branches, 'git log' sorts in time order of commits irrespective of branch so in that view, parent commit ID may not precede the commit ID that you are looking at.
+Use 'git branch -d branchname' to delete a branch label. Once you merge two branches, you may want to delete one branch label out of two merged if that was a just temporary branch. Note: 'git branch -d branchname' will only delete branch label, not the commits there.
+More about git merge: git merge always merges all specified branches to checkout branch so merge commit is always made on checked out branch. It also means, you don't need to explicitly give checked out branch name to tell git to merge to it. It is by default. This means, if you have banchC as checkout branch and you run 'git merge branchA branchB', actually git will merge branch A and B to C hence three branches will be merged and commit will be available on branch C.
+For merge conflict, use 'git merge --abort'. It restores all files to state before merge.
+If merge command gives conflict, if you open the file where conflict is, it will show conflicted areas in sublime text editor with '>>>master' or those kind of labels. First label means, code of the checkedout branch file and middle one gives code in the parent file and last one gives code in the file on branch that you want to merge to this checked out file. You can open in the sublime and then edit according to what change you want to keep and what you want to discard. Then save those changes. Now come back to git and run 'git status' command and that will show that you have made changes in the conflicted file and that you can add now to staging area, use 'git add filename' and git commit to finish the merging process.
+'git remote' will give you all the remotes to github like 'git banch'gives all the branched in git repository.
+'git remote add remotename url'creates a remote with a remotename (just like a branchname) that connects git local to the github repository at the given url. It is same url that you can give to 'git clone url' command to create local clone from github if there is no local repository.
+'git remote -v' gives more verbose/ detailed status of all the remotes. Dash v means verbose.
+'git push remotename localbranchname' is used to push local branch commits into github using the remote that you named.
