@@ -8,7 +8,7 @@ git checkout ID makes that commit as current and available to check in folder
 CD ~ is used to get to base git directory or home
 mv is move command to move file and mv with path where a file is currently present moves the file to home directory
 while writing file path in unix environment, use forward slash while in windows, it is back slash. if path name is two lettered and has a space in between, use back slash between two letters to show space in this environment.
-comman scp can be used to make a secure copy from one computer to another one
+command scp can be used to make a secure copy from one computer to another one
 ls -a (ls Dash a) can give you list of files in a directory including the hidden ones. NOTE: ls -a runs without git prefix
 If you reach a directory location in git bash and then use 'git init', git will initialize to configuration control that directory. It can be checked using 'ls -a' command in git because now this directory will show one more file in there with the name '.git' that stores metadata (history) etc. to manage configuration
 NOTE: With 'git init' command, git automatically doesn't create a first commit for new directory under git config control, you have to explicitly create first commit or for that matter any commit.
